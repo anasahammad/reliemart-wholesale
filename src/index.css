@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  transition: 0.2s;
+}
+.dashboard > .active {
+  background: rgba(0, 10, 27, 0.74) !important;
+  color: white !important;
+}
+.scroll-none::-webkit-scrollbar {
+  display: none;
+}
+/* .swiper-pagination {
+  margin-bottom: -20px !important;
+} */
+.swiper-pagination-bullet-active {
+  background: #0056b3 !important;
+}
+
+.scroll-animation {
+  animation: animationTimeline;
+  animation-timeline: view();
+}
+
+@keyframes animationTimeline {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  12% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+
+/* Global scrollbar style */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Scrollbar এর পেছনের রঙ */
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888; /* Scrollbar এর মূল অংশের রঙ */
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Hover করার সময় রঙ পরিবর্তন */
+}
+
+
+/* Background Gradient */
+.background-gradient {
+  background: linear-gradient(135deg, #FD7C25, #F23753, #F7583D);
+}
+
+/* Text Gradient */
+.text-gradient {
+  background: linear-gradient(90deg, #FD7C25, #F23753, #F7583D);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
