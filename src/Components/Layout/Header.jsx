@@ -149,19 +149,7 @@ const Header = ({ activeHeading }) => {
                </span>
              </div>
            </Link>
-       ) : (
-        <Link to="/seller/dashboard" className="flex items-center space-x-2">
-        <MdSell className="text-2xl text-gray-700  " />
-        <div>
-          <span className="block text-sm text-gray-700">
-            Go to Dashboard
-          </span>
-          <span className="block text-xs text-orange-500">
-            Reseller Dashboard
-          </span>
-        </div>
-      </Link>
-       )}
+       ) : null}
 
             <Link to="/login">
               <div className="flex items-center space-x-2">

@@ -48,7 +48,7 @@ const ProductDetails = ({ data }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [activeTab, setActiveTab] = useState("specification");
   const [showShareOptions, setShowShareOptions] = useState(false);
-
+  
   const [selectedVariant, setSelectedVariant] = useState({
     color: "",
     size: "",
@@ -201,7 +201,10 @@ const ProductDetails = ({ data }) => {
               {data?.electronicsSchema[0]?.price || "N/A"}
             </p>
           </div>
+
+
         )}
+     
       </div>
     ),
     description: (
@@ -366,6 +369,32 @@ const ProductDetails = ({ data }) => {
               {data.status} {data?.stock}
             </p>
 
+            {data?.isWholesale && (
+        <div className="mt-6 bg-gray-100 p-4 rounded-lg">
+          <h3 className="text-lg font-semibold mb-2 text-red-500">Wholesale Prices</h3>
+          <div className="overflow-x-auto">
+            <table className="min-w-full bg-white">
+              <thead className="bg-gray-200">
+                <tr>
+                  <th className="py-2 px-4 text-left">Quantity</th>
+                  <th className="py-2 px-4 text-left">Price per Unit</th>
+                  <th className="py-2 px-4 text-left">Total Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data?.wholeSalePrice?.map((price, index) => (
+                  <tr key={index} className={index % 2 === 0 ? "bg-gray-50" : "bg-white"}>
+                    <td className="py-2 px-4">{price?.minQuantity}+ units</td>
+                    <td className="py-2 px-4">{price?.pricePerUnit}৳</td>
+                    <td className="py-2 px-4">{price?.minQuantity * price?.pricePerUnit}৳</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-2 text-sm text-gray-600">* Prices are subject to change. Contact us for bulk orders.</p>
+        </div>
+      )}
             <div className="flex justify-start items-center gap-4 mb-6">
               <button
                 onClick={()=>handleWishlistToggle(data)}
