@@ -53,7 +53,7 @@ export const login = async ({ phone,  password }) => {
 export const loginUser = async ({ email,  password }) => {
   try {
     const { data } = await axios.post(
-      `${import.meta.env.VITE_API_URL}/user/login`,
+      `${import.meta.env.VITE_API_URL}/wholeSaleCustomer/login`,
       {
         email,
         password,
@@ -90,7 +90,7 @@ export const getUserByIdForReseller = async (resellerId) => {
 //get user
 export const getUserByIdForUser = async (userId) => {
   try {
-    const response = await axios.get(`${import.meta.env.VITE_API_URL}/user/me/${userId}`,
+    const response = await axios.get(`${import.meta.env.VITE_API_URL}/wholeSaleCustomer/${userId}`,
       
       {
         withCredentials: true,

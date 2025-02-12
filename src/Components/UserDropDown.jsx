@@ -25,13 +25,13 @@ const UserDropdown = ({  photoUrl }) => {
   const userInfo =
   userState?.customerInfo || JSON.parse(localStorage.getItem("customerAccount"));
 const userId = userInfo?.user?._id;
-//console.log(resellerId);
+console.log('userId ',  userId);
 useEffect(() => {
   const fetchUser = async () => {
     try {
       const userData = await getUserByIdForUser(userId);
-      //console.log(userData.user);
-      setAccounts(userData.user);
+      console.log('user ',userData);
+      setAccounts(userData);
     } catch (err) {
       // setError(err.message);
     }
@@ -77,19 +77,12 @@ console.log("accounts ",accounts);
           onMouseLeave={closeDropdown}
         >
           <ul className="py-2">
-            <li>
-              <Link
-                to="/my-orders"
-                className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-              >
-                My Orders
-              </Link>
-            </li>
+            
             
             {!accounts && (
                 <li>
                 <Link
-                  to="/my-orders"
+                  to="/login"
                   className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                 >
                   Login
@@ -106,7 +99,14 @@ console.log("accounts ",accounts);
                   Profile
                 </Link>
               </li>
-
+              <li>
+              <Link
+                to="/my-orders"
+                className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+              >
+                My Orders
+              </Link>
+            </li>
               <li>
               <button
                onClick={logoutHandler}

@@ -4,20 +4,26 @@ import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import { FaCross } from 'react-icons/fa';
 import { MdCancel } from 'react-icons/md';
+import { useSelector } from 'react-redux';
 
 const OrderModal = ({ product, onClose }) => {
   const [uploading, setUploading] = useState(false);
+  const userState = useSelector((state) => state.user);
+  const userInfo =
+  userState?.customerInfo || JSON.parse(localStorage.getItem("customerAccount"));
+  const userId = userInfo?.user?._id;
   const [formData, setFormData] = useState({
-    customerName: '',
-    phone: '',
+    customerName: userInfo?.user?.name || '',
+    phone: userInfo?.user?.phone || '',
     productQuantity: 10,
     address: '',
     notes: '',
-    companyName: '',
+    companyName: userInfo?.user?.companyName || '',
     businessType: '',
     facebookPage: '',
     website: '',
     businessCard: null,
+    customerId: userId
   });
 
   const handleChange = (e) => {

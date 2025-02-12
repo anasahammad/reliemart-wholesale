@@ -16,7 +16,7 @@ const Signup = () => {
   const signUpMutation = useMutation({
     mutationFn: async (data) => {
       const response = await axios.post(
-        `${import.meta.env.VITE_API_URL}/user/register`,
+        `${import.meta.env.VITE_API_URL}/wholeSaleCustomer/register`,
         data,
         { headers: { "Content-Type": "application/json" } }
       );
@@ -132,6 +132,47 @@ const Signup = () => {
                 />
               </div>
               {errors.password && <p className="mt-2 text-sm text-red-600">{errors.password.message}</p>}
+            </div>
+
+            {/* Whatsapp Number */}
+            
+            <div>
+              <label htmlFor="whatsappNumber" className="sr-only">Whatsapp Number</label>
+              <div className="relative">
+                <FaLock className="absolute top-3 left-3 text-gray-400" />
+                <input
+                  id="whatsappNumber"
+                  name="whatsappNumber"
+                  type="whatsappNumber"
+                  {...register("whatsappNumber", { 
+                    required: "whatsappNumber is required",
+                    
+                  })}
+                  className="appearance-none rounded-none relative block w-full px-3 py-2 pl-10 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                  placeholder="Whatsapp Number"
+                />
+              </div>
+              {errors.whatsappNumber && <p className="mt-2 text-sm text-red-600">{errors.whatsappNumber.message}</p>}
+            </div>
+
+{/* Company Name */}
+            <div>
+              <label htmlFor="whatsappNumber" className="sr-only">Company Name</label>
+              <div className="relative">
+                <FaLock className="absolute top-3 left-3 text-gray-400" />
+                <input
+                  id="companyName"
+                  name="companyName"
+                  type="companyName"
+                  {...register("companyName", { 
+                    required: "companyName is required",
+                    
+                  })}
+                  className="appearance-none rounded-none relative block w-full px-3 py-2 pl-10 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                  placeholder="Company ame"
+                />
+              </div>
+              {errors.companyName && <p className="mt-2 text-sm text-red-600">{errors.companyName.message}</p>}
             </div>
           </div>
 
